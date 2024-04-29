@@ -1,0 +1,29 @@
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+stages:
+  - pull
+  - restart_service
+
+
+deploy job:
+  stage: pull
+  environment: production
+  tags:
+   - ai-server
+  script:
+    - echo "Deploying application..."
+    - cd $APP_PATH
+    - git pull origin $CI_DEPLOY_BRANCH
+    - echo "Application successfully deployed."
+
+start_service job:
+  stage: restart_service
+  environment: production
+  tags:
+   - ai-server
+  script:
+    - echo "Starting service..."
+    - sudo systemctl restart $SYSTEMD_APP
+    - echo "Success running service!"
