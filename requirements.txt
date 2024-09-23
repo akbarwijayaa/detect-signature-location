@@ -1,0 +1,10 @@
+fitz==0.0.1.dev2
+Flask==3.0.3
+numpy==2.1.1
+paddleocr==2.7.0.3
+paddleocr.egg==info
+pandas==2.2.3
+Pillow==10.1.0
+psycopg2_binary==2.9.9
+qrcode==7.4.2
+SQLAlchemy==2.0.23
