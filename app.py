@@ -1,7 +1,7 @@
 from flask import Flask, request, send_file
-from main import signature_world
+from src.main import signature_world
 from io import BytesIO
-from dashboardNeeds.main import append_data, update_api_status
+from src.to_dashboard.main import append_data, update_api_status
 
 import time
 from datetime import datetime, date 
